@@ -1,0 +1,14 @@
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+node_modules
+npm-debug.log
+npm-debug*
+/dist
+
+.DS_Store
+/.idea/
+/.idea/*
+.vscode
