@@ -5,3 +5,4 @@ canvas.width = 900
 canvas.height = 506
 
 export default ctx
+export {canvas}
