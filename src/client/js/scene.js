@@ -30,14 +30,14 @@ function calculatePosition(player) {
 
 	if (player.y >= canvasHeight - playerSize) {
 		player.y = canvasHeight - playerSize
+		player.xVel *= quadricFriction
 		player.yVel *= -quadricFriction
-		player.yXel *= quadricFriction
 	}
 
 	if (player.y <= playerSize) {
 		player.y = playerSize
+		player.xVel *= quadricFriction
 		player.yVel *= -quadricFriction
-		player.yXel *= quadricFriction
 	}
 }
 
