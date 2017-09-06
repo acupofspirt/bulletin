@@ -6,7 +6,7 @@ import startScene from './scene.js'
 startScene(ctx, state)
 
 /**
- * @todo Speed limit
+ * @todo Add manipulation rate, for non-linear speed increasing
  * @todo Shooting
  * @todo Slightly slowdown player when shooting
  */

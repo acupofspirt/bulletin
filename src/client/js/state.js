@@ -8,9 +8,10 @@ export default {
       mxLast: 0, // clientX by last mousemove
       my: 0, // actual mouse y relative to player position
       myLast: 0, // clientY by last mousemove
-      speed: 2,
       xVel: 0,
       yVel: 0,
+      maxVel: 15,
+      minVelTreshold: 0.02,
       friction: 0.96,
       mousePressed: false
     },

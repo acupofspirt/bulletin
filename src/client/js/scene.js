@@ -72,8 +72,7 @@ function calculatePlayerPosition (player) {
     player.xVel *= -quadricFriction
     player.yVel *= quadricFriction
   }
-
-  if (player.x <= playerSize) {
+  else if (player.x <= playerSize) {
     player.x = playerSize
     player.xVel *= -quadricFriction
     player.yVel *= quadricFriction
@@ -84,11 +83,35 @@ function calculatePlayerPosition (player) {
     player.xVel *= quadricFriction
     player.yVel *= -quadricFriction
   }
-
-  if (player.y <= playerSize) {
+  else if (player.y <= playerSize) {
     player.y = playerSize
     player.xVel *= quadricFriction
     player.yVel *= -quadricFriction
+  }
+
+  // Speed limit
+  if (Math.abs(player.xVel) > player.maxVel) {
+    if (player.xVel > 0) {
+      player.xVel = player.maxVel
+    }
+    else {
+      player.xVel = -player.maxVel
+    }
+  }
+  else if (Math.abs(player.xVel) < player.minVelTreshold) {
+    player.xVel = 0
+  }
+
+  if (Math.abs(player.yVel) > player.maxVel) {
+    if (player.yVel > 0) {
+      player.yVel = player.maxVel
+    }
+    else {
+      player.yVel = -player.maxVel
+    }
+  }
+  else if (Math.abs(player.yVel) < player.minVelTreshold) {
+    player.yVel = 0
   }
 }
 
