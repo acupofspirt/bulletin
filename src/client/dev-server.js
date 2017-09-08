@@ -1,6 +1,20 @@
 const app = require('express')(),
       staticServer = require('serve-static'),
-      path = require('path')
+      webpackConfig = require('./webpack.dev.js'),
+      webpack = require('webpack'),
+      webpackMiddleware = require('webpack-dev-middleware'),
+      hotMiddleware = require('webpack-hot-middleware'),
+      path = require('path'),
+      compiler = webpack(webpackConfig)
+
+app.use(webpackMiddleware(compiler, {
+  noInfo: false,
+  publicPath: webpackConfig.output.publicPath,
+  stats: {colors: true},
+  headers: {'Access-Control-Allow-Origin': '*'}
+}))
+
+app.use(hotMiddleware(compiler, {heartbeat: 500}))
 
 app.use(staticServer(
   path.resolve(__dirname),
